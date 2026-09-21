@@ -1,0 +1,60 @@
+# ---------------------------------------------------------------------------
+# nas_cleaner - configuracion de limpieza
+#
+# Filosofia: allowlist explicito. SOLO se borra lo que matchea una regla
+# de "targets". Todo lo demas (rutas nuevas, desconocidas, productivas) se
+# ignora por defecto. "forbidden_roots" es una segunda barrera opcional.
+# ---------------------------------------------------------------------------
+
+defaults:
+  # Antiguedad minima del archivo (por mtime) para ser candidato a borrar.
+  older_than_days: 30
+
+  # Circuit breaker: si una corrida generaria mas borrados que esto, aborta.
+  # Protege ante errores de config que hagan matchear demasiado.
+  max_deletes_per_run: 10000
+
+  # Si se define una ruta (UNC o local), los archivos NO se borran:
+  # se mueven aqui manteniendo estructura. Permite reversibilidad blanda.
+  # Dejar en null para borrado definitivo.
+  trash_dir: null
+
+  # Dias que el trash conserva archivos antes de ser purgado (informativo).
+  trash_retention_days: 7
+
+  # Paralelismo por raiz (I/O bound sobre SMB). No paralelizar dentro de una
+  # misma carpeta: genera contencion en el NAS.
+  workers: 4
+
+# ---------------------------------------------------------------------------
+# TARGETS - allowlist. Agregar aqui cada nueva ruta de reporte a limpiar.
+# Cada target hereda de "defaults" y puede sobreescribir campos.
+# ---------------------------------------------------------------------------
+targets:
+  - name: reports-daily-csv
+    root: '\\nas01\reportes\diarios'
+    patterns: ['*.csv', '*.xlsx']
+    older_than_days: 30
+    max_depth: 3
+
+  - name: reports-logs
+    root: '\\nas01\reportes\logs'
+    patterns: ['*.log', '*.log.*', '*.txt']
+    older_than_days: 14
+    max_depth: 5
+
+  - name: reports-exports-tmp
+    root: '\\nas01\reportes\exports\tmp'
+    patterns: ['*']         # todo lo que caiga aqui es transitorio
+    older_than_days: 3
+    max_depth: 2
+
+# ---------------------------------------------------------------------------
+# FORBIDDEN_ROOTS - defensa en profundidad.
+# Aunque un target matchee, si el path resuelto (tras symlinks) cae bajo
+# alguna de estas rutas, se rechaza. Usar para blindar zonas productivas.
+# ---------------------------------------------------------------------------
+forbidden_roots:
+  - '\\nas01\prod'
+  - '\\nas01\erp'
+  - '\\nas01\finanzas'

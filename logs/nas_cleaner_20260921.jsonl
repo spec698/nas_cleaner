@@ -1,0 +1,14 @@
+{"ts": "2026-09-21T10:26:34", "run_id": "20260921T102634", "kind": "run_start", "pid": 2800}
+{"ts": "2026-09-21T10:26:34", "run_id": "20260921T102634", "kind": "plan_start", "targets": ["diarios"], "apply": false}
+{"ts": "2026-09-21T10:26:34", "run_id": "20260921T102634", "kind": "scan_done", "target": "diarios", "candidates": 3}
+{"ts": "2026-09-21T10:26:34", "run_id": "20260921T102634", "kind": "would_delete", "target": "diarios", "path": "C:\\Users\\ADM-JG~1\\AppData\\Local\\Temp\\nas_c2h0e77a\\reportes\\diarios\\r0.csv", "size": 1, "mtime": 1784795169.3223722}
+{"ts": "2026-09-21T10:26:34", "run_id": "20260921T102634", "kind": "would_delete", "target": "diarios", "path": "C:\\Users\\ADM-JG~1\\AppData\\Local\\Temp\\nas_c2h0e77a\\reportes\\diarios\\r1.csv", "size": 1, "mtime": 1784795169.3233764}
+{"ts": "2026-09-21T10:26:34", "run_id": "20260921T102634", "kind": "would_delete", "target": "diarios", "path": "C:\\Users\\ADM-JG~1\\AppData\\Local\\Temp\\nas_c2h0e77a\\reportes\\diarios\\r2.csv", "size": 1, "mtime": 1784795169.3247483}
+{"ts": "2026-09-21T10:26:34", "run_id": "20260921T102634", "kind": "run_end", "scanned": 3, "would_delete": 3, "deleted": 0, "skipped_safety": 0, "errors": 0, "bytes_freed": 0, "apply": false}
+{"ts": "2026-09-21T10:26:34", "run_id": "20260921T102634", "kind": "run_start", "pid": 3864}
+{"ts": "2026-09-21T10:26:34", "run_id": "20260921T102634", "kind": "plan_start", "targets": ["diarios"], "apply": true}
+{"ts": "2026-09-21T10:26:34", "run_id": "20260921T102634", "kind": "scan_done", "target": "diarios", "candidates": 3}
+{"ts": "2026-09-21T10:26:34", "run_id": "20260921T102634", "kind": "deleted", "target": "diarios", "path": "C:\\Users\\adm-jguno4f\\AppData\\Local\\Temp\\nas_c2h0e77a\\reportes\\diarios\\r0.csv", "size": 1, "mtime": 1784795169.3223722}
+{"ts": "2026-09-21T10:26:34", "run_id": "20260921T102634", "kind": "deleted", "target": "diarios", "path": "C:\\Users\\adm-jguno4f\\AppData\\Local\\Temp\\nas_c2h0e77a\\reportes\\diarios\\r1.csv", "size": 1, "mtime": 1784795169.3233764}
+{"ts": "2026-09-21T10:26:34", "run_id": "20260921T102634", "kind": "deleted", "target": "diarios", "path": "C:\\Users\\adm-jguno4f\\AppData\\Local\\Temp\\nas_c2h0e77a\\reportes\\diarios\\r2.csv", "size": 1, "mtime": 1784795169.3247483}
+{"ts": "2026-09-21T10:26:34", "run_id": "20260921T102634", "kind": "run_end", "scanned": 3, "would_delete": 3, "deleted": 3, "skipped_safety": 0, "errors": 0, "bytes_freed": 3, "apply": true}
